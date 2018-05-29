@@ -4,35 +4,36 @@ var testArrayGenap = [40, 18, 22, 32, 90, 10, 10, 22, 8];
 var testArrayGanjil = [3, 31, 89, 53, 53, 85, 77, 21, 55];
 
 function ownSort(arr) {
-  // insertion sort
+  
+  for(var x=0; x<arr.length; x++) {
+    var bun=arr[x]
+    for(var y=x-1; y>=0; y--) {
 
-  for (var i = 1; i < arr.length; i++) {
-    var isi = arr[i];
-
-    for (var j = i - 1; arr[j] > isi; j--) {
-      arr[j + 1] = arr[j];
+      if(arr[y]>bun) {
+        arr[y+1]=arr[y]
+      } else {
+        break
+      }
     }
-    arr[j + 1] = isi;
+    arr[y+1]=bun
   }
-  return arr;
 
+  return arr
 }
 
 function binary_search(search, array) {
-  var min = 0;
-  var max = array.length - 1;
-
-  while (min <= max) {
-    var mid = Math.floor((min + max) / 2);
-    if (array[mid] === search) {
-      return mid;
-    } else if (array[mid] < search) {
-      min = mid + 1;
+  let indexMin = 0;
+  let indexMax = array.length - 1;
+  for (var i = 0; i < array.length; i++) {
+    let checkIndex = Math.floor((indexMin + indexMax) / 2);
+    if (array[checkIndex] > search) {
+      indexMax = checkIndex;
+    } else if (array[checkIndex] < search) {
+      indexMin = checkIndex;
     } else {
-      max = mid - 1;
+      return checkIndex;
     }
   }
-
   return -1;
 }
 
