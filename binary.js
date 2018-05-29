@@ -29,7 +29,6 @@ function ownSort(arr) {
     arr[j+1] = sementara;
     
   }
-  console.log(arr)
   // Your sorting code
   return arr
 }
