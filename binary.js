@@ -6,23 +6,20 @@ var testArrayGanjil = [3, 31, 89, 53, 53, 85, 77, 21, 55]
 
 function ownSort(arr) {
   for (var i = 0; i < arr.length; i++) {
-    var booleanProcess = false;
+    var booleanProcess = true;
     var comparison = arr[i];
     for (var j = 0; j < i; j++) {
       var container = arr[j];
-      if (comparison < container) {
+      if (comparison <= container && booleanProcess) {
         arr.splice(i, 1);
         if (j === 0) {
         arr.unshift(comparison);
-        booleanProcess = true;
+        booleanProcess = false;
         } else {
         arr.splice(j, 0, comparison);
-        booleanProcess = true;
+        booleanProcess = false;
         }
       }
-    }
-    if (booleanProcess) {
-      i++
     }
   }
   return arr
