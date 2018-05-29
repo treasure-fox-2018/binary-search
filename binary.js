@@ -3,27 +3,55 @@
 var testArrayGenap = [40, 18, 22, 32, 90, 10, 10, 22, 8]
 var testArrayGanjil = [3, 31, 89, 53, 53, 85, 77, 21, 55]
 
+/*
+ PSEUDOCODE SORT
+
+ FOR `a` = 0 to Length of `arr`
+  STORE `target` with value `arr[a]`
+  FOR `b` = `a-1` to `b` >= 0 AND `arr[b]` > `target`
+    `arr[`b` ADD By 1]` = `arr[b]`
+    `b` ADD By 1
+  ENDFOR
+  `arr[`b` ADD By 1]` = `target`
+  `a` ADD By 1 
+ ENDFOR
+
+ DISPLAY `arr`
+*/
+
 function ownSort(arr) {
   //sort ganjil
-  for (var a = 0; a < testArrayGanjil.length; a++) {
-    var target = testArrayGanjil[a]
-    for (var b = a - 1; b >= 0 && (testArrayGanjil[b] > target); b--) {
-      testArrayGanjil[b + 1] = testArrayGanjil[b]
+  for (var a = 0; a < arr.length; a++) {
+    var target = arr[a]
+    for (var b = a - 1; b >= 0 && (arr[b] > target); b--) {
+      arr[b + 1] = arr[b]
     }
-    testArrayGanjil[b + 1] = target
+    arr[b + 1] = target
   }
-
-  //sort genap
-  for (var a = 0; a < testArrayGenap.length; a++) {
-    var target = testArrayGenap[a]
-    for (var b = a - 1; b >= 0 && (testArrayGenap[b] > target); b--) {
-      testArrayGenap[b + 1] = testArrayGenap[b]
-    }
-    testArrayGenap[b + 1] = target
-  }
-
+  
   return arr
 }
+
+/*
+  PSEUDOCODE Binary Search
+
+  STORE `indexAwal` with value 0
+  STORE `indexAkhir` with value Length of `array`
+
+  WHILE `indexAwal` <= `indexAkhir`
+    STORE `indexMiddle` with value `indexAwal` ADD By `indexAkhir` DIV 2
+
+    IF `array[`indexMiddle`]` < `search` THEN
+      `indexAwal` = `indexMiddle` ADD By 1
+    ELSE IF `array[`indexMiddle`]` > `search` THEN
+      `indexAkhir` = `indexMiddle` SUBSTRACT 1
+    ELSE 
+      DISPLAY `indexMiddle`
+    ENDIF
+  ENDWHILE
+
+  DISPLAY -1
+*/
 
 function binarySearch(search, array) {
 
